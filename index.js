@@ -6,7 +6,7 @@ server.use(express.json());
 
 
 server.use((req, res, next) => {
-    res.header('Acess-Control-Alow-Origin', '*');
+    res.header("Acess-Control-Alow-Origin: http://localhost:8/");
     next();
 });
 
@@ -35,7 +35,7 @@ server.get("/cards", (req, res) =>{
 })
 
 server.post("/cards", (req, res) =>{
-    const {title, content} = req.body;
+    const {title, content} = req.params;
     const card = {
         id:nextId, 
         title,
@@ -51,7 +51,7 @@ server.post("/cards", (req, res) =>{
 
 server.put("/cards/:id", checkCard, (req, res) =>{
    
-    const card = cards.find(p => p.id == id);
+    
 
 
     if(title) {
