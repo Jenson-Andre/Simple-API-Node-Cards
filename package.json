@@ -5,13 +5,15 @@
   "repository": "https://github.com/Jenson-Andre/Simple-API-Node-Cards.git",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.1"
   },
   "dependencies": {
     "axios": "^0.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   }
 }
