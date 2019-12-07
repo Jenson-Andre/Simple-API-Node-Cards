@@ -37,7 +37,7 @@ server.get("/cards", (req, res) =>{
 })
 
 server.post("/cards", (req, res) =>{
-    const {title, content} = req.params;
+    const {title, content} = req.body;
     const card = {
         id:nextId, 
         title,
