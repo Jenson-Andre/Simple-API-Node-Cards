@@ -6,7 +6,7 @@ server.use(express.json());
 
 
 server.use((req, res, next) => {
-    res.header("Acess-Control-Alow-Origin: http://localhost:8/");
+    res.header("Acess-Control-Alow-Origin: *");
     next();
 });
 
