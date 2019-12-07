@@ -6,9 +6,10 @@ server.use(express.json());
 
 
 server.use((req, res, next) => {
-    res.header("Acess-Control-Alow-Origin: *");
-    res.header('Access-Control-Allow-Methods: GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers: Content-Type');
+    res.header('Acess-Control-Alow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    console.log("funcionando")
     next();
 });
 
@@ -79,4 +80,4 @@ server.delete("/cards/:id", checkCard, (req, res)=> {
 })
 
 
-server.listen(3000);
+server.listen();
