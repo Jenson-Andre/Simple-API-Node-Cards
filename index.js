@@ -1,18 +1,19 @@
 const express = require ('express');
-require ('dotenv').config();
+var cors = require('cors');
+
 
 const server = express();
 
 server.use(express.json());
-
+server.use(cors());
 
 server.use((req, res, next) => {
-    res.header('Acess-Control-Alow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    console.log("funcionando")
+    res.header('Access-Control-Allow-Origin *');
+    res.header('Access-Control-Allow-Methods GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers Content-Type');
+    
     next();
-});
+    });
 
 function checkCard(req, res, next) {
     const {id} = req.params;
@@ -53,10 +54,10 @@ server.post("/cards", (req, res) =>{
     return res.json (card);
 });
 
-server.put("/cards/:id", checkCard, (req, res) =>{
-   
+server.put("/cards/:id", (req, res) =>{
+   const {id} = req.params;
     
-
+    const card = cards.find(card => card.id == id);
 
     if(title) {
         card.title = title;
@@ -81,4 +82,4 @@ server.delete("/cards/:id", checkCard, (req, res)=> {
 })
 
 
-server.listen(process.env.PORT);
+server.listen(3000);
