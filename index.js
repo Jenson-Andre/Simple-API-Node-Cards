@@ -56,6 +56,7 @@ server.post("/cards", (req, res) =>{
 
 server.put("/cards/:id", (req, res) =>{
    const {id} = req.params;
+   const {title, content} = req.body;
     
     const card = cards.find(card => card.id == id);
 
