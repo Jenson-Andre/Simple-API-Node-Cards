@@ -77,6 +77,11 @@ server.delete("/cards/:id", checkCard, (req, res)=> {
     
     const cardIndex = cards.findIndex(p => p.id == id);
 
+    database.query(`DELETE FROM cards WHERE id = ${id};`, { type: database.QueryTypes.delete})
+    .then(del => {
+        console.log(del);
+    })
+
     cards.splice(cardIndex, 1);
 
     res.json(cards);
